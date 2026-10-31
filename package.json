@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "description": "物联网设计与创新课程实践项目：模拟设备数据采集与可视化",
-  "main": "publisher.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node publisher.js"
+    "start": "node server.js",
+    "publish": "node publisher.js"
+  },
+  "dependencies": {
+    "express": "^5.3.0"
   },
   "engines": {
     "node": ">=18"

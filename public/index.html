@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>物联网数据可视化 · iot-demo</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="dot" id="live-dot"></span>
+        <h1>物联网数据可视化</h1>
+      </div>
+      <div class="meta">
+        <span>设备 <b id="device-id">—</b></span>
+        <span>采样间隔 <b id="interval">—</b></span>
+        <span id="conn" class="badge">连接中…</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="cards">
+        <article class="card">
+          <p class="label">当前温度</p>
+          <p class="value"><span id="temp-now">—</span><span class="unit">°C</span></p>
+          <p class="sub" id="temp-range">—</p>
+        </article>
+        <article class="card">
+          <p class="label">当前湿度</p>
+          <p class="value"><span id="hum-now">—</span><span class="unit">%RH</span></p>
+          <p class="sub" id="hum-range">—</p>
+        </article>
+        <article class="card">
+          <p class="label">累计读数</p>
+          <p class="value"><span id="count">0</span><span class="unit">条</span></p>
+          <p class="sub" id="last-time">等待数据…</p>
+        </article>
+      </section>
+
+      <section class="chart-panel">
+        <div class="panel-head">
+          <h2>温度趋势</h2>
+          <span class="legend"><i class="swatch temp"></i>温度 °C</span>
+        </div>
+        <canvas id="temp-chart" height="220"></canvas>
+      </section>
+
+      <section class="chart-panel">
+        <div class="panel-head">
+          <h2>湿度趋势</h2>
+          <span class="legend"><i class="swatch hum"></i>湿度 %RH</span>
+        </div>
+        <canvas id="hum-chart" height="220"></canvas>
+      </section>
+
+      <p class="footnote">
+        数据由 <code>publisher.js</code> 每秒生成，经 <code>GET /api/stream</code>（SSE）实时推送到本页；
+        最近 60 个点参与绘图。
+      </p>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
