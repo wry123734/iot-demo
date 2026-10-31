@@ -1,0 +1,13 @@
+{
+  "name": "iot-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "物联网设计与创新课程实践项目：模拟设备数据采集与可视化",
+  "main": "publisher.js",
+  "scripts": {
+    "start": "node publisher.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
